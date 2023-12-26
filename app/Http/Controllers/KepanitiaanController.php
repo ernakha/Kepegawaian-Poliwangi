@@ -35,7 +35,7 @@ class KepanitiaanController extends Controller
 
         foreach ($request->nama  as $key => $namas) {
          $dataNama = new Anggota;
-         $dataNama -> nama = $namas;
+         $dataNama -> user_id = $namas;
          $dataNama -> kepanitiaans_id = $data->id;
          $dataNama->save();
         }
@@ -60,15 +60,14 @@ class KepanitiaanController extends Controller
         $data->terima = $request->terima;
         $data->mulai = $request->mulai;
         $data->selesai = $request->selesai;
-        $data->user_id = $request -> anggota;
-        $data->save();
+        $data->update();
 
-      //   foreach ($request->nama  as $key => $namas) {
-      //    $dataNama = new Anggota;
-      //    $dataNama -> nama= $namas;
-      //    $dataNama -> kepanitiaans_id = $data->id;
-      //    $dataNama->save();
-      //   }
+        foreach ($request->nama  as $key => $namas) {
+         $dataNama = new Anggota;
+         $dataNama -> nama= $namas;
+         $dataNama -> kepanitiaans_id = $data->id;
+         $dataNama->update();
+        }
         return redirect()->route('kepanitiaan.view');
      }
   
