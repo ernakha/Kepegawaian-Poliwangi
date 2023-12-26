@@ -48,7 +48,7 @@
                             <label for="mulai" class="form-label">Anggota</label>
                             <select class="form-control js-example-basic-multiple" name="nama[]" id="nama" required>
                             @foreach ($anggota as $item)
-                            <option value="{{ $item->name }}">{{ $item->name }}</option>
+                            <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
                             </select>
                             <!-- <input type="text" class="form-control" name="nama[]" id="nama" required> -->
