@@ -21,9 +21,7 @@ class KepanitiaanController extends Controller
      }
   
      public function create(){
-         $anggota = DB::table('users')->whereNotIn('id', function ($query){
-            $query->select('user_id')->from('kepanitiaans');
-         })->get();
+         $anggota = DB::table('users')->get();
         return view('backend.kepanitiaan.add_kepanitiaan', compact('anggota'));
      }
   
@@ -33,15 +31,14 @@ class KepanitiaanController extends Controller
         $data->terima = $request->terima;
         $data->mulai = $request->mulai;
         $data->selesai = $request->selesai;
-        $data->user_id->attach($request->input('anggota[]'));
         $data->save();
 
-      //   foreach ($request->nama  as $key => $namas) {
-      //    $dataNama = new Anggota;
-      //    $dataNama -> nama= $namas;
-      //    $dataNama -> kepanitiaans_id = $data->id;
-      //    $dataNama->save();
-      //   }
+        foreach ($request->nama  as $key => $namas) {
+         $dataNama = new Anggota;
+         $dataNama -> nama = $namas;
+         $dataNama -> kepanitiaans_id = $data->id;
+         $dataNama->save();
+        }
         return redirect()->route('kepanitiaan.view');
      }
   

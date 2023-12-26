@@ -17,8 +17,6 @@ return new class extends Migration
             $table->date('terima');
             $table->date('mulai');
             $table->date('selesai');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
