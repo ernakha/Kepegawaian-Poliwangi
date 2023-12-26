@@ -13,7 +13,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
+    <li class="{{'dashboard' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link" href="{{url('/dashboard')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -23,7 +23,7 @@
     <hr class="sidebar-divider">
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item active">
+    <li class="{{'kepanitiaans/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link collapsed" href="{{url('/kepanitiaans/view')}}">
             </i><i class="fas fa-solid fa-table"></i>
             <span>Kepanitiaan</span>
