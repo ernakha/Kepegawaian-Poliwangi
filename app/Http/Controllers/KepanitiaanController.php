@@ -11,13 +11,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Auth;
 
 class KepanitiaanController extends Controller
 {
     public function index(){
-        $data['allDataKepanitiaan'] = Kepanitiaan::all();
-
-        return view('backend.kepanitiaan.view_kepanitiaan', $data);
+         if(Auth::user()->id=='1'){
+            $data = Kepanitiaan::all();
+            return view('backend.kepanitiaan.view_kepanitiaan', ['data' => $data]);
+      } else {
+            $user = Auth::user()->id;
+            $data = Anggota::where('user_id', $user)->get();
+            return view('backend.kepanitiaan.view_kepanitiaan2', ['data' => $data]);
+      }
      }
   
      public function create(){

@@ -31,10 +31,10 @@
                         @foreach ($data as $item =>$kepanitiaan)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$kepanitiaan->kategori}}</td>
-                            <td>{{$kepanitiaan->terima}}</td>
-                            <td>{{$kepanitiaan->mulai}}</td>
-                            <td>{{$kepanitiaan->selesai}}</td>
+                            <td>{{$kepanitiaan->kepanitiaans->kategori}}</td>
+                            <td>{{$kepanitiaan->kepanitiaans->terima}}</td>
+                            <td>{{$kepanitiaan->kepanitiaans->mulai}}</td>
+                            <td>{{$kepanitiaan->kepanitiaans->selesai}}</td>
                             <td>
                                 <a href="{{route('bukti.add')}}"><button type="button" class="btn"><i class="fa fa-upload"></i></button></a>
                                 <a href="{{url('generate-pdf')}}">
