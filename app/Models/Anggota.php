@@ -12,4 +12,7 @@ class Anggota extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
 
+    public function kepanitiaans(){
+        return $this->belongsTo(Kepanitiaan::class, 'kepanitiaans_id', 'id');
+    }
 }
