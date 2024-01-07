@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AnggdinController;
 use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\Bukti2Controller;
 use App\Http\Controllers\BuktiController;
+use App\Http\Controllers\DinlurController;
 use App\Http\Controllers\KepanitiaanController;
 use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
@@ -40,3 +43,16 @@ Route::prefix('buktis')->group(function(){
     Route::post('/store', [BuktiController::class, 'store'])->name('bukti.store');
 });
 
+Route::prefix('dinlurs')->group(function(){
+    Route::get('/view', [DinlurController::class, 'index'])->name('dinlur.view');
+    Route::get('/add', [DinlurController::class, 'create'])->name('dinlur.add');
+    Route::post('/store', [DinlurController::class, 'store'])->name('dinlur.store');
+    Route::get('/edit/{id}', [DinlurController::class, 'edit'])->name('dinlur.edit');
+    Route::get('/delete/{id}',[DinlurController::class, 'delete'])->name('dinlur.delete');
+    Route::get('/get', [AnggdinController::class, 'getData']);
+});
+
+Route::prefix('bukti2s')->group(function(){
+    Route::get('/add', [Bukti2Controller::class, 'create'])->name('bukti2.add');
+    Route::post('/store', [Bukti2Controller::class, 'store'])->name('bukti2.store');
+});

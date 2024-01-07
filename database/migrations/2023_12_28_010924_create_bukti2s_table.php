@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('anggdins', function (Blueprint $table) {
+        Schema::create('bukti2s', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('dinlurs_id')->constrained();
-            $table->softDeletes();
+            $table->string('kegiatan');
+            $table->string('nafile');
+            $table->string('keterangan');
+            $table->string('file');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('anggdins');
+        Schema::dropIfExists('bukti2s');
     }
 };
