@@ -30,6 +30,13 @@
         </a>
     </li>
 
+    <li class="{{'dinlurs/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
+        <a class="nav-link collapsed" href="{{url('/dinlurs/view')}}">
+            </i><i class="fas fa-solid fa-table"></i>
+            <span>Dinas Luar</span>
+        </a>
+    </li>
+
     <!-- Nav Item - Charts -->
     <li class="nav-item ">
         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
