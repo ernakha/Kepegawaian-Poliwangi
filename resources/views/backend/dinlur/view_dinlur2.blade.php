@@ -7,9 +7,9 @@
             <div class="col">
                 <h1 class="h3 mb-2 text-gray-800">Data Dinas Luar</h1>
             </div>
-            <div class="co text-end mb-2">
+            <!-- <div class="co text-end mb-2">
                 <a href="{{route('dinlur.add')}}"><button type="button" class="btn btn-primary">Tambah Data</button></a>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -37,11 +37,11 @@
                             <td>{{$dinlur->dinlurs->mulai}}</td>
                             <td>{{$dinlur->dinlurs->selesai}}</td>
                             <td>
-                                <a href="{{route('bukti2.add')}}"><button type="button" class="btn"><i class="fa fa-upload"></i></button></a>
+                                <a href="{{route('buktidin.edit', $dinlur->dinlurs->id)}}"><button type="button" class="btn"><i class="fa fa-upload"></i></button></a>
                                 <a href="{{url('generate-pdf')}}">
                                     <button type="button" class="btn"><i class="fa fa-file-pdf-o"></i></button>
                                 </a>
-                                <a href="{{route('dinlur.delete', $dinlur->id)}}" id="delete" class="btn"><i class="fa fa-trash-o"></i></a>
+                                <!-- <a href="{{route('dinlur.delete', $dinlur->id)}}" id="delete" class="btn"><i class="fa fa-trash-o"></i></a> -->
                             </td>
                         </tr>
                         @endforeach

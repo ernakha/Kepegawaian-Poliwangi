@@ -17,6 +17,8 @@ return new class extends Migration
             $table->date('terima');
             $table->date('mulai');
             $table->date('selesai');
+            $table->string('keterangan')->default('keterangan');
+            $table->string('file')->default('1');
             $table->timestamps();
         });
     }

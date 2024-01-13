@@ -15,4 +15,8 @@ class Anggdin extends Model
     public function dinlurs(){
         return $this->belongsTo(Dinlur::class, 'dinlurs_id', 'id');
     }
+    
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

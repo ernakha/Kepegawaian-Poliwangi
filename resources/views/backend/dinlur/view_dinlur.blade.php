@@ -38,7 +38,7 @@
                             <td>{{$dinlur->mulai}}</td>
                             <td>{{$dinlur->selesai}}</td>
                             <td>
-                                <a href="{{route('bukti2.add')}}"><button type="button" class="btn"><i class="fa fa-upload"></i></button></a>
+                            <a href="{{route('buktidin.edit', $dinlur->id)}}"><button type="button" class="btn"><i class="fa fa-upload"></i></button></a>
                                 <a href="{{url('generate-pdf')}}">
                                     <button type="button" class="btn"><i class="fa fa-file-pdf-o"></i></button>
                                 </a>

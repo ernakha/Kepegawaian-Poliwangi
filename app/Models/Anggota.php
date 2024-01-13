@@ -15,4 +15,8 @@ class Anggota extends Model
     public function kepanitiaans(){
         return $this->belongsTo(Kepanitiaan::class, 'kepanitiaans_id', 'id');
     }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }
