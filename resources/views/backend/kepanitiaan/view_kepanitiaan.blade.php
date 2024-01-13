@@ -36,7 +36,7 @@
                             <td>{{$kepanitiaan->mulai}}</td>
                             <td>{{$kepanitiaan->selesai}}</td>
                             <td>
-                                <a href="{{route('bukti.add')}}"><button type="button" class="btn"><i class="fa fa-upload"></i></button></a>
+                                <a href="{{route('bukti.edit', $kepanitiaan->id)}}"><button type="button" class="btn"><i class="fa fa-upload"></i></button></a>
                                 <a href="{{url('generate-pdf')}}">
                                     <button type="button" class="btn"><i class="fa fa-file-pdf-o"></i></button>
                                 </a>

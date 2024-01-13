@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\AnggdinController;
 use App\Http\Controllers\AnggotaController;
-use App\Http\Controllers\Bukti2Controller;
-use App\Http\Controllers\BuktiController;
 use App\Http\Controllers\DinlurController;
 use App\Http\Controllers\KepanitiaanController;
 use App\Http\Controllers\PDFController;
@@ -37,10 +35,8 @@ Route::prefix('kepanitiaans')->group(function(){
     Route::get('/edit/{id}', [KepanitiaanController::class, 'edit'])->name('kepanitiaan.edit');
     Route::get('/delete/{id}',[KepanitiaanController::class, 'delete'])->name('kepanitiaan.delete');
     Route::get('/get', [AnggotaController::class, 'getData']);
-});
-Route::prefix('buktis')->group(function(){
-    Route::get('/add', [BuktiController::class, 'create'])->name('bukti.add');
-    Route::post('/store', [BuktiController::class, 'store'])->name('bukti.store');
+    Route::get('/edit-bukti/{id}', [KepanitiaanController::class, 'editbukti'])->name('bukti.edit');
+    Route::post('/update-bukti/{id}', [KepanitiaanController::class, 'updatebukti'])->name('bukti.update');
 });
 
 Route::prefix('dinlurs')->group(function(){
@@ -50,9 +46,7 @@ Route::prefix('dinlurs')->group(function(){
     Route::get('/edit/{id}', [DinlurController::class, 'edit'])->name('dinlur.edit');
     Route::get('/delete/{id}',[DinlurController::class, 'delete'])->name('dinlur.delete');
     Route::get('/get', [AnggdinController::class, 'getData']);
+    Route::get('/edit-buk/{id}', [DinlurController::class, 'editbuk'])->name('buktidin.edit');
+    Route::post('/update-buk/{id}', [DinlurController::class, 'updatebuk'])->name('buktidin.update');
 });
 
-Route::prefix('bukti2s')->group(function(){
-    Route::get('/add', [Bukti2Controller::class, 'create'])->name('bukti2.add');
-    Route::post('/store', [Bukti2Controller::class, 'store'])->name('bukti2.store');
-});

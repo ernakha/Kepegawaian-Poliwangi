@@ -18,7 +18,8 @@ class KepanitiaanController extends Controller
     public function index(){
          if(Auth::user()->id=='1'){
             $data = Kepanitiaan::all();
-            return view('backend.kepanitiaan.view_kepanitiaan', ['data' => $data]);
+            $dataanggota = Anggota::all();
+            return view('backend.kepanitiaan.view_kepanitiaan', ['data' => $data, 'dataanggota' => $dataanggota],);
       } else {
             $user = Auth::user()->id;
             $data = Anggota::where('user_id', $user)->get();
@@ -54,8 +55,8 @@ class KepanitiaanController extends Controller
         return view('backend.kepanitiaan.edit_kepanitiaan', compact('edit'));
      }
   
-     public function update(Request $request, $id){
-         $data = Kepanitiaan::find($id);
+   public function update(Request $request, $id){
+      $data = Kepanitiaan::find($id);
       //   $data->namaAnggota = $request->anggota_id;
       //   $data->kategoriTugas = $request->kategori;
       //   $data->terima = $request->terima;
@@ -68,20 +69,32 @@ class KepanitiaanController extends Controller
         $data->selesai = $request->selesai;
         $data->update();
 
-        foreach ($request->nama  as $key => $namas) {
+      foreach ($request->nama  as $key => $namas) {
          $dataNama = new Anggota;
          $dataNama -> nama= $namas;
          $dataNama -> kepanitiaans_id = $data->id;
          $dataNama->update();
-        }
-        return redirect()->route('kepanitiaan.view');
-     }
-  
-     public function delete($id){
-        $deleteData = Kepanitiaan::find($id);
-        $deleteData->delete();
-        return redirect()->route('kepanitiaan.view');
-     }
+      }
+      return redirect()->route('kepanitiaan.view');
+   }
 
-     
+   public function editbukti($id){
+      $databukti = Kepanitiaan::find($id);
+      $datanama = Anggota::find($id);
+      return view('backend.kepanitiaan.edit_kepanitiaan', compact('databukti', 'datanama'));
+   }
+
+   public function updatebukti(Request $request, $id){
+      $data = Kepanitiaan::find($id);
+      $data->keterangan = $request->keterangan;
+      $data->file = $request->file;
+      $data->save();
+      return redirect()->route('kepanitiaan.view');
+   }
+
+   public function delete($id){
+      $deleteData = Kepanitiaan::find($id);
+      $deleteData->delete();
+      return redirect()->route('kepanitiaan.view');
+   }
 }

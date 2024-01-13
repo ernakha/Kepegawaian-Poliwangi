@@ -49,6 +49,21 @@ class DinlurController extends Controller
        $edit = Anggdin::find($id);
        return view('backend.dinlur.edit_dinlur', compact('edit'));
     }
+
+    
+   public function editbuk($id){
+      $databuk = Dinlur::find($id);
+      $datanam = Anggdin::find($id);
+      return view('backend.dinlur.edit_dinlur', compact('databuk', 'datanam'));
+   }
+
+   public function updatebuk(Request $request, $id){
+      $data = Dinlur::find($id);
+      $data->keterangan = $request->keterangan;
+      $data->file = $request->file;
+      $data->save();
+      return redirect()->route('dinlur.view');
+   }
  
     public function update(Request $request, $id){
         $data = Dinlur::find($id);
