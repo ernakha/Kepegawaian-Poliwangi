@@ -20,11 +20,11 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Kategori Tugas</th>
-                            <th>Tanggal Terima</th>
-                            <th>Tanggal Masuk</th>
-                            <th>Tanggal Selesai</th>
-                            <th>Aksi</th>
+                            <th><center>Kategori Tugas</center></th>
+                            <th><center>Tanggal Terima</center></th>
+                            <th><center>Tanggal Masuk</center></th>
+                            <th><center>Tanggal Selesai</center></th>
+                            <th><center>Aksi</center></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,12 +35,14 @@
                             <td>{{$kepanitiaan->terima}}</td>
                             <td>{{$kepanitiaan->mulai}}</td>
                             <td>{{$kepanitiaan->selesai}}</td>
-                            <td>
+                            <td><center>
                                 <a href="{{route('bukti.edit', $kepanitiaan->id)}}"><button type="button" class="btn"><i class="fa fa-upload"></i></button></a>
+                                <a href="{{route('nilai.edit', $kepanitiaan->id)}}"><button type="button" class="btn"><i class="fa fa-heart"></i></button></a>
                                 <a href="{{url('generate-pdf')}}">
                                     <button type="button" class="btn"><i class="fa fa-file-pdf-o"></i></button>
                                 </a>
                                 <a href="{{route('kepanitiaan.delete', $kepanitiaan->id)}}" id="delete" class="btn"><i class="fa fa-trash-o"></i></a>
+                                </center>
                             </td>
                         </tr>
                         @endforeach

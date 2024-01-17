@@ -50,19 +50,13 @@ class KepanitiaanController extends Controller
      }
   
      public function edit($id){
-        $edit = Kepanitiaan::find($id);
-        $edit = Anggota::find($id);
-        return view('backend.kepanitiaan.edit_kepanitiaan', compact('edit'));
+        $editpanitia = Kepanitiaan::find($id);
+        $editanggota = Anggota::find($id);
+        return view('backend.kepanitiaan.edit_kepanitiaan', compact('editpanitia', 'editanggota'));
      }
   
    public function update(Request $request, $id){
       $data = Kepanitiaan::find($id);
-      //   $data->namaAnggota = $request->anggota_id;
-      //   $data->kategoriTugas = $request->kategori;
-      //   $data->terima = $request->terima;
-      //   $data->mulai = $request->mulai;
-      //   $data->selesai = $request->selesai;
-      //   $data->save();
       $data->kategori = $request->kategori;
         $data->terima = $request->terima;
         $data->mulai = $request->mulai;
@@ -81,7 +75,7 @@ class KepanitiaanController extends Controller
    public function editbukti($id){
       $databukti = Kepanitiaan::find($id);
       $datanama = Anggota::find($id);
-      return view('backend.kepanitiaan.edit_kepanitiaan', compact('databukti', 'datanama'));
+      return view('backend.kepanitiaan.bukti_kepanitiaan', compact('databukti', 'datanama'));
    }
 
    public function updatebukti(Request $request, $id){
