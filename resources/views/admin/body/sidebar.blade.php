@@ -2,9 +2,9 @@
  <ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class=""></i>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+        <div class="sidebar-brand-icon">
+            <img src="{{asset('backend/img/poliwangi.png')}}" alt="" style="height: 45px; width: 45px;">
         </div>
         <div class="sidebar-brand-text mx-3">Poliwangi</div>
     </a>
@@ -25,14 +25,14 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="{{'kepanitiaans/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link collapsed" href="{{url('/kepanitiaans/view')}}">
-            </i><i class="fas fa-solid fa-table"></i>
+            </i><i class="fas fa-solid fa-id-card"></i>
             <span>Kepanitiaan</span>
         </a>
     </li>
 
     <li class="{{'dinlurs/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link collapsed" href="{{url('/dinlurs/view')}}">
-            </i><i class="fas fa-solid fa-table"></i>
+            </i><i class="fas fa-solid fa-car"></i>
             <span>Dinas Luar</span>
         </a>
     </li>

@@ -20,12 +20,12 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Tempat Dinas Luar</th>
-                            <th>Kategori Tugas</th>
-                            <th>Tanggal Terima</th>
-                            <th>Tanggal Masuk</th>
-                            <th>Tanggal Selesai</th>
-                            <th>Aksi</th>
+                            <th><center>Tempat Dinas Luar</center></th>
+                            <th><center>Kategori Tugas</center></th>
+                            <th><center>Tanggal Terima</center></th>
+                            <th><center>Tanggal Masuk</center></th>
+                            <th><center>Tanggal Selesai</center></th>
+                            <th><center>Aksi</center></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,12 +37,14 @@
                             <td>{{$dinlur->terima}}</td>
                             <td>{{$dinlur->mulai}}</td>
                             <td>{{$dinlur->selesai}}</td>
-                            <td>
+                            <td> <center>
                             <a href="{{route('buktidin.edit', $dinlur->id)}}"><button type="button" class="btn"><i class="fa fa-upload"></i></button></a>
+                                <a href="{{route('nilaidin.edit', $dinlur->id)}}"><button type="button" class="btn"><i class="fa fa-heart"></i></button></a>
                                 <a href="{{url('generate-pdf')}}">
                                     <button type="button" class="btn"><i class="fa fa-file-pdf-o"></i></button>
                                 </a>
                                 <a href="{{route('dinlur.delete', $dinlur->id)}}" id="delete" class="btn"><i class="fa fa-trash-o"></i></a>
+                                </center>
                             </td>
                         </tr>
                         @endforeach

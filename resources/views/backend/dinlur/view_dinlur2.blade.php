@@ -32,6 +32,7 @@
                         @foreach ($data as $item =>$dinlur)
                         <tr>
                             <td>{{$loop->iteration}}</td>
+                            <td>{{$dinlur->dinlurs->tempat}}</td>
                             <td>{{$dinlur->dinlurs->kategori}}</td>
                             <td>{{$dinlur->dinlurs->terima}}</td>
                             <td>{{$dinlur->dinlurs->mulai}}</td>
